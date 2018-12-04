@@ -16,7 +16,7 @@ typedef void(^SDCompleteCallback)(SDRouterContext *context);
 
 + (void)autoLoad;
 + (instancetype)shareRutor;
-- (void)rutor:(NSURL *)paten;
+- (void)openRoute:(NSURL *)paten;
 
 @end
 

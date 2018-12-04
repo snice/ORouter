@@ -54,10 +54,9 @@ static ORouter *_rutor;
                 if ([@"routePath" isEqualToString:selStr]) {
                     SEL selector = NSSelectorFromString(@"routePath");
                     NSString* path = ((id(*)(id,SEL))objc_msgSend)(currentClass,selector);
-                    NSLog(@"===%@", path);
                     [[ORouter shareRutor] addPaten:path callback:^(SDRouterContext *context) {
                         UIViewController* vc = [[currentClass alloc] init];
-                        NSLog(@"route.params: %@",context.paramters);
+                        [vc setValue:context.paramters forKey:@"params"];
                         [context.topNavigationController pushViewController:vc animated:YES];
                     }];
                     break;
@@ -82,7 +81,7 @@ static ORouter *_rutor;
     return self;
 }
 
-- (void)rutor:(NSURL *)paten {
+- (void)openRoute:(NSURL *)paten {
     SDURLParser *parser = [[SDURLParser alloc] initWithURL:paten];
     [_results enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([[obj allKeys].firstObject isEqualToString:parser.paten]) {
@@ -98,9 +97,7 @@ static ORouter *_rutor;
 }
 
 - (void)addPaten:(NSString *)paten callback:(SDCompleteCallback)callback{
-    
     NSDictionary *dict = @{paten:callback};
-    
     if (![_results containsObject:dict]) {
         [_results addObject:dict];
     }
