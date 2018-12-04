@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestViewController : UIViewController
+@interface TestViewController : ORouterViewController
 
 @end
 
