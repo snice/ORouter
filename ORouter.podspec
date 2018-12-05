@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ORouter"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "oc runtime router"
   s.description  = <<-DESC
                     oc runtime Router
