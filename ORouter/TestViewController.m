@@ -8,13 +8,18 @@
 
 #import "TestViewController.h"
 
+#define SCHEMA_EASY @"easy"
+#define HOST_EASY @"router.flyma.top"
+
+#define ROUTE_PATH_SECOND HOST_EASY@"/second/test"
+
 @interface TestViewController ()
 
 @end
 
 @implementation TestViewController
 
-ROUTER_PATH(@"app", @"test")
+ROUTER_PATH(SCHEMA_EASY, ROUTE_PATH_SECOND)
 
 -(instancetype)init {
     NSLog(@"TestViewController init");

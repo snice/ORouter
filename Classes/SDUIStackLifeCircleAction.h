@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+
 @interface SDUIStackLifeCircleAction : NSObject
 
 //@property (nonatomic, strong) NSString* identifier;

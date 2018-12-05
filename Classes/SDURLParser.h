@@ -33,14 +33,7 @@ the request's origin url
 /**
  the first part of URL's paths
  */
-@property (nonatomic, strong, readonly) NSString* module;
-
-
-/**
- the sencond part of URL's paths
- */
-@property (nonatomic, strong, readonly) NSString* method;
-
+@property (nonatomic, strong, readonly) NSString* host;
 
 /**
  the paramters decoded from the query string.

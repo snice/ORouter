@@ -20,6 +20,9 @@ ROUTER_PATH(@"app", @"fd")
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
+- (IBAction)routeTest:(id)sender {
+    [[ORouter shareRutor] openRoute:[NSURL URLWithString:@"easy://router.flyma.top/second/test?test=23"]];
+}
 
 
 @end

@@ -23,13 +23,9 @@
 - (void) decodeURL
 {
     _scheme = _originURL.scheme;
-    NSArray* paths = _originURL.pathComponents;
-    _module = _originURL.host;
-    if (paths.count > 1) {
-        _method = paths[1];
-    }
+    _host = _originURL.host;
     NSString* query = _originURL.query;
     _paramters = SDURLRouteDecodeURLQueryParamters(query);
-    _paten = [NSString stringWithFormat:@"%@://%@", _scheme, _module];
+    _paten = [_originURL.absoluteString substringWithRange:NSMakeRange(0, [_originURL.absoluteString rangeOfString:query].location - 1)];
 }
 @end
