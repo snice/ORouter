@@ -11,6 +11,11 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+#define ROUTE_PATH @"routePath"
+#define INSTANCE_FROM_STORY @"instanceFromStory"
+
+#define KEY_PARAMS @"params"
+
 NSArray *ClassGetSubclasses(Class parentClass)
 {
     int numClasses = 0, newNumClasses = objc_getClassList(NULL, 0); // 1
@@ -50,19 +55,28 @@ static ORouter *_rutor;
         unsigned int methodCount = 0;
         Method *methodList = class_copyMethodList(object_getClass(currentClass), &methodCount);
         if (methodCount > 0) {
-            for (unsigned int i = 0; i < methodCount; i++) {
-                Method curMethod = methodList[i];
-                NSString *selStr = [NSString stringWithCString:sel_getName(method_getName(curMethod)) encoding:NSUTF8StringEncoding];
-                if ([@"routePath" isEqualToString:selStr]) {
-                    SEL selector = NSSelectorFromString(@"routePath");
-                    NSString* path = ((id(*)(id,SEL))objc_msgSend)(currentClass,selector);
-                    [[ORouter shareRutor] addPaten:path callback:^(SDRouterContext *context) {
-                        UIViewController* vc = [[currentClass alloc] init];
-                        [vc setValue:context.paramters forKey:@"params"];
-                        [context.topNavigationController pushViewController:vc animated:YES];
-                    }];
-                    break;
+            NSMutableArray<NSString*>* arr = [NSMutableArray arrayWithCapacity:methodCount];
+            if (methodCount > 0) {
+                for (unsigned int i = 0; i < methodCount; i++) {
+                    NSString *selStr = [NSString stringWithCString:sel_getName(method_getName(methodList[i])) encoding:NSUTF8StringEncoding];
+                    [arr addObject:selStr];
                 }
+            }
+            NSArray<NSString*>* methods = [arr copy];
+            if ([methods containsObject:ROUTE_PATH]) {
+                SEL selector = NSSelectorFromString(ROUTE_PATH);
+                NSString* path = ((id(*)(id,SEL))objc_msgSend)(currentClass,selector);
+                [[ORouter shareRutor] addPaten:path callback:^(SDRouterContext *context) {
+                    UIViewController* vc;
+                    if ([methods containsObject:INSTANCE_FROM_STORY]) {
+                        SEL selector = NSSelectorFromString(INSTANCE_FROM_STORY);
+                        vc = ((id(*)(id,SEL))objc_msgSend)(currentClass,selector);
+                    } else {
+                        vc = [[currentClass alloc] init];
+                    }
+                    [vc setValue:context.paramters forKey:KEY_PARAMS];
+                    [context.topNavigationController pushViewController:vc animated:YES];
+                }];
             }
         }
     }

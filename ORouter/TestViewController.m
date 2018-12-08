@@ -20,14 +20,12 @@
 @implementation TestViewController
 
 ROUTER_PATH(SCHEMA_EASY, ROUTE_PATH_SECOND)
-
--(instancetype)init {
-    NSLog(@"TestViewController init");
-    return [super init];
-}
+ROUTER_STORYBOARD(Main, TestViewController)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Second";
+    NSLog(@"%@", self.params);
     // Do any additional setup after loading the view.
 }
 

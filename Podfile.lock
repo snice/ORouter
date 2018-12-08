@@ -1,5 +1,5 @@
 PODS:
-  - ORouter (0.0.1)
+  - ORouter (0.0.2)
 
 DEPENDENCIES:
   - ORouter (from `.`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  ORouter: 37a6c84c78833264fa8b458e7c09aa3820234aae
+  ORouter: b4ab1f19e7133e9c0495362361952bdcfffe307e
 
 PODFILE CHECKSUM: cfbe7bf244ba11a38bded8a8e07a54338103afcd
 

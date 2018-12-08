@@ -14,7 +14,6 @@
 		5D46E33821B509AA004CB944 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E33621B509AA004CB944 /* LaunchScreen.storyboard */; };
 		5D46E33B21B509AA004CB944 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D46E33A21B509AA004CB944 /* main.m */; };
 		5D46E34821B515DE004CB944 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D46E34721B515DE004CB944 /* TestViewController.m */; };
-		5D46E35421B7743D004CB944 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D46E35321B7743D004CB944 /* TestViewController.xib */; };
 		5FB7548EDB61491FF4686339 /* Pods_ORouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3312ABD8745FBB088C1C11A4 /* Pods_ORouter.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		5D46E33A21B509AA004CB944 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5D46E34621B515DE004CB944 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		5D46E34721B515DE004CB944 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		5D46E35321B7743D004CB944 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		F621D57823C8D20D93E3E44B /* Pods-ORouter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ORouter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ORouter/Pods-ORouter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +74,6 @@
 				5D46E32F21B509A8004CB944 /* ViewController.m */,
 				5D46E34621B515DE004CB944 /* TestViewController.h */,
 				5D46E34721B515DE004CB944 /* TestViewController.m */,
-				5D46E35321B7743D004CB944 /* TestViewController.xib */,
 				5D46E33121B509A8004CB944 /* Main.storyboard */,
 				5D46E33421B509AA004CB944 /* Assets.xcassets */,
 				5D46E33621B509AA004CB944 /* LaunchScreen.storyboard */,
@@ -164,7 +161,6 @@
 			files = (
 				5D46E33821B509AA004CB944 /* LaunchScreen.storyboard in Resources */,
 				5D46E33521B509AA004CB944 /* Assets.xcassets in Resources */,
-				5D46E35421B7743D004CB944 /* TestViewController.xib in Resources */,
 				5D46E33321B509A8004CB944 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
